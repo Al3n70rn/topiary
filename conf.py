@@ -8,5 +8,5 @@ class Mock(MagicMock):
     def __getattr__(cls, name):
             return Mock()
 
-MOCK_MODULES = ['matplotlib', 'matplotlib.pyplot', 'scikit-bio']
+MOCK_MODULES = ['varcode']
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
