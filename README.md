@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hammerlab/topiary.svg?branch=master)](https://travis-ci.org/hammerlab/topiary) [![Coverage Status](https://coveralls.io/repos/hammerlab/topiary/badge.svg?branch=master&service=github)](https://coveralls.io/github/hammerlab/topiary?branch=master)
+[![Build Status](https://travis-ci.org/hammerlab/topiary.svg?branch=master)](https://travis-ci.org/hammerlab/topiary) [![Coverage Status](https://coveralls.io/repos/hammerlab/topiary/badge.svg?branch=master&service=github)](https://coveralls.io/github/hammerlab/topiary?branch=master) [![Documentation Status](https://readthedocs.org/projects/topiary/badge/?version=latest)](http://topiary.readthedocs.org/en/latest/?badge=latest)
 
 # Topiary
 Predict mutation-derived cancer T-cell epitopes from (1) somatic variants (2) tumor RNA expression data, and (3) patient HLA type.
@@ -125,4 +125,3 @@ containing a  self peptide ligandome (peptides which should be excluded from
 results)
 * `--skip-variant-errors`: If a particular mutation causes an exception to be raised
 during annotation, you can skip it using this flag.
-
