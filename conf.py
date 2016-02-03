@@ -26,7 +26,7 @@ except:
 MOCK_MODULES = []
 
 for requirement_line in open("requirements.txt", "r"):
-    parts = requirement_line.splt(" ")
+    parts = requirement_line.split(" ")
     if parts:
         package_name = parts[0]
         print("Adding mock module for '%s'" % package_name)
