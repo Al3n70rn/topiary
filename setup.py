@@ -34,6 +34,20 @@ except:
         "Conversion of long_description from MD to reStructuredText failed...")
 
 
+building_docs_on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
+if building_docs_on_rtd:
+    required_packages = []
+else:
+    required_packages = [
+        'numpy >=1.7, <2.0',
+        'pandas >=0.13.1',
+        'mhctools >=0.1.8',
+        'varcode >=0.3.17',
+        'nose >=1.3.6',
+        'gtfparse >=0.0.4'
+    ]
+
 if __name__ == '__main__':
     setup(
         name='topiary',
@@ -52,14 +66,7 @@ if __name__ == '__main__':
             'Programming Language :: Python',
             'Topic :: Scientific/Engineering :: Bio-Informatics',
         ],
-        install_requires=[
-            'numpy >=1.7, <2.0',
-            'pandas >=0.13.1',
-            'mhctools >=0.1.8',
-            'varcode >=0.3.17',
-            'nose >=1.3.6',
-            'gtfparse >=0.0.4'
-        ],
+        install_requires=required_packages,
         long_description=readme,
         packages=find_packages(exclude="test"),
         scripts=[
