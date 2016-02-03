@@ -38,6 +38,7 @@ except:
 building_docs_on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 if building_docs_on_rtd:
+    print("ReadTheDocs detected, not installing dependencies")
     # we're going to use mock objects for all modules
     # which come with Python versions 3.3+ but require
     # a separate package before that
