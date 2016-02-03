@@ -25,10 +25,16 @@ except:
 # replace all dependencies with Mock objects
 MOCK_MODULES = []
 
+
+def get_package_name(line, delimiters=[" ", ">", "<", "="]):
+    for delim in delimiters:
+        line = line.partition(delim)[0]
+    return line
+
 for requirement_line in open("requirements.txt", "r"):
-    parts = requirement_line.split(" ")
-    if parts:
-        package_name = parts[0]
+    # get everything up until a version constraint like >=, >, <, <=, ==
+    package_name = get_package_name(requirement_line)
+    if package_name:
         print("Adding mock module for '%s'" % package_name)
         MOCK_MODULES.append(package_name)
 
