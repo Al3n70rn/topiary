@@ -14,6 +14,7 @@
 
 from __future__ import print_function
 import os
+import sys
 
 from setuptools import setup, find_packages
 
@@ -37,10 +38,17 @@ except:
 building_docs_on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 if building_docs_on_rtd:
-    required_packages = []
+    # we're going to use mock objects for all modules
+    # which come with Python versions 3.3+ but require
+    # a separate package before that
+    major_version, minor_version = sys.version_info[:2]
+    if major_version < 3 or minor_version < 3:
+        required_packages = ["mock"]
+    else:
+        required_packages = []
 else:
     required_packages = [
-        'numpy >=1.7, <2.0',
+        'numpy >=1.7',
         'pandas >=0.13.1',
         'mhctools >=0.1.8',
         'varcode >=0.3.17',
